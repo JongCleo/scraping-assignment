@@ -1,7 +1,7 @@
 import argparse
 
 from scraper import Scraper
-from utils import format_city, format_state
+from utils import format_city, format_name, format_state
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--city", type=str, default="", help="city name")
@@ -13,7 +13,8 @@ args = parser.parse_args()
 
 state = format_state(args.state)
 city = format_city(args.city)
+name = format_name(args.name)
 
-scraper = Scraper(city, state, args.name)
+scraper = Scraper(name, city, state)
 results = scraper.get_results()
 print(results)
