@@ -70,10 +70,10 @@ pip install requirements.txt
 To run main.py with the location and name arguments:
 
 ```
-python main.py --location <location> --name <name>
+python main.py --name <name> --city <city>  --state <state>
 ```
 
-Replace `location` and `name` with the desired values for the arguments.
+Replace `city` `state` and `name` with the desired values for the arguments.
 
 To run the Selenium testing suite:
 
