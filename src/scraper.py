@@ -3,6 +3,7 @@ from typing import List
 
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
 @dataclass
@@ -21,7 +22,10 @@ class Scraper:
         self.city = city
         self.state = state
         # TODO: apply dependency inversion, current implementation couples selenium-isms with scraping logic
-        self.driver = webdriver.Chrome()
+
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        self.driver = webdriver.Chrome(options=chrome_options)
         self.driver.execute_cdp_cmd(
             "Network.setUserAgentOverride", {"userAgent": self._get_random_user_agent()}
         )
@@ -31,14 +35,14 @@ class Scraper:
 
     def get_results(self) -> List[Person]:
         # TODO: why would this not work? what exceptions should I be catching?
-        self.driver.get(f"https://www.officialusa.com/names/{name}")
+        self.driver.get(f"https://www.officialusa.com/names/{self.name}")
 
         if self.driver.title.lower() == "page not found" or "404" in self.driver.title:
             return []
 
         # if there's a valid city or state, filter by it (change page state)
         if self.city or self.state:
-            pass
+            return []
 
         # load page state into bs4 and process into Person data class
 
