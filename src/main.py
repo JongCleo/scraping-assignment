@@ -4,14 +4,12 @@ from scraper import Scraper
 from utils import format_city, format_state
 
 parser = argparse.ArgumentParser()
-parser.add_argument("city", help="city name")
-parser.add_argument("state", help="supports full and abbreviated forms")
-parser.add_argument("name", help="full name of the person")
+parser.add_argument("--city", type=str, default="", help="city name")
+parser.add_argument(
+    "--state", type=str, default="", help="supports full and abbreviated forms"
+)
+parser.add_argument("--name", type=str, required=True, help="full name of the person")
 args = parser.parse_args()
-
-if not args.name:
-    print("Name cannot be empty")
-    exit(1)
 
 state = format_state(args.state)
 city = format_city(args.city)
