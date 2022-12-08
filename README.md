@@ -41,9 +41,16 @@ While it's less elegant for the consumer, I'll split the location argument (ie. 
 ## Todos
 
 - [x] architecture/approach (45 mins)
-- [] write main.py (1 hr)
-- [] write README (10 mins)
-- [] selenium tests (30 mins)
+- [x] write main code (1.5 hrs)
+- [x] write README (10 mins)
+- [x] selenium tests (30 mins)
+- [] add logging
+- [] API
+- [] other custom headers?
+- [] multi browser
+- [] rotating proxies
+- [] [await selenium](https://stackoverflow.com/questions/26566799/wait-until-page-is-loaded-with-selenium-webdriver-for-python)
+- [] dockerize
 
 ## Setup
 
@@ -71,6 +78,9 @@ To run main.py with the location and name arguments:
 
 ```
 python main.py --name <name> --city <city>  --state <state>
+
+ex. python main.py --name "Walter Baade" --city Holtsville
+
 ```
 
 Replace `city` `state` and `name` with the desired values for the arguments.
@@ -78,5 +88,5 @@ Replace `city` `state` and `name` with the desired values for the arguments.
 To run the Selenium testing suite:
 
 ```
-python -m selenium
+ENV=test python -m pytest --verbose
 ```
