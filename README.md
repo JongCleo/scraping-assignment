@@ -40,23 +40,23 @@ While it's less elegant for the consumer, I'll split the location argument (ie. 
 
 ## Todos
 
-- [x] architecture/approach (45 mins)
-- [x] write main code (1.5 hrs)
-- [x] write README (10 mins)
-- [x] selenium tests (30 mins)
-- [] add logging
-- [] API
-- [] other custom headers?
-- [] multi browser
-- [] rotating proxies
-- [] [await selenium](https://stackoverflow.com/questions/26566799/wait-until-page-is-loaded-with-selenium-webdriver-for-python)
-- [] dockerize
+- [x] architecture/approach
+- [x] selenium tests
+- [x] write main code
+- [x] write README
+- [ ] add logging
+- [ ] API
+- [ ] other custom headers?
+- [ ] multi browser
+- [ ] rotating proxies
+- [ ] [await selenium](https://stackoverflow.com/questions/26566799/wait-until-page-is-loaded-with-selenium-webdriver-for-python)
+- [ ] dockerize
 
 ## Setup
 
-You will need to have python3 and pip installed on your system.
+You will need to have python3, Chrome and pip installed on your system.
 
-First, clone this repo andrun the following command:
+First, clone this repo and run the following command:
 
 ```
 python3 -m venv venv

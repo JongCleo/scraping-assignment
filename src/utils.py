@@ -66,7 +66,6 @@ def format_city(city: str) -> str:
 
 
 def format_name(name: str) -> str:
-    # replace spaces with hyphen
     return name.strip().title().replace(" ", "-")
 
 
