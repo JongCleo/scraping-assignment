@@ -22,7 +22,6 @@ pathspec==0.10.2
 platformdirs==2.6.0
 pluggy==1.0.0
 py==1.11.0
-pylint==2.15.8
 pyparsing==3.0.9
 PySocks==1.7.1
 pytest==6.2.5
