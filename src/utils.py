@@ -71,10 +71,8 @@ def format_name(name: str) -> str:
 
 
 def log_info(message: str) -> None:
-    if os.getenv("LOGGING_DESTINATION") == "test":
-        print(f"[INFO] {message}")
+    print(f"[INFO] {message}")
 
 
 def log_error(message: str) -> None:
-    if os.getenv("LOGGING_DESTINATION") == "test":
-        print(f"[ERROR] {message}")
+    print(f"[ERROR] {message}")

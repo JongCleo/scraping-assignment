@@ -2,7 +2,7 @@ import argparse
 from dataclasses import asdict
 
 from src.scraper import Scraper
-from src.utils import format_city, format_name, format_state
+from src.utils import format_city, format_name, format_state, log_info
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--city", type=str, default="", help="city name")
@@ -25,4 +25,4 @@ if raw_results:
         result.dump = ""
         print(asdict(result))
 else:
-    print("No results found")
+    log_info("No results found")

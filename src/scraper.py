@@ -57,10 +57,14 @@ class Scraper:
             ).click()
 
     def get_raw_results(self) -> str:
-        # TODO: why would this not work? what exceptions should I be catching?
-        self.driver.get(f"https://www.officialusa.com/names/{self.name}")
+        try:
+            self.driver.get(f"https://www.officialusa.com/names/{self.name}")
+        except Exception as e:
+            log_error(f"Request failed, try again later:{e}")
+            return ""
 
         if "page not found" in self.driver.title.lower() or "404" in self.driver.title:
+            log_error(f"{self.name} is not a valid name")
             return ""
 
         if self.city or self.state:
