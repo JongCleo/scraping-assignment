@@ -1,7 +1,8 @@
 import argparse
+from dataclasses import asdict
 
-from .scraper import Scraper
-from .utils import format_city, format_name, format_state
+from src.scraper import Scraper
+from src.utils import format_city, format_name, format_state
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--city", type=str, default="", help="city name")
@@ -16,5 +17,12 @@ city = format_city(args.city)
 name = format_name(args.name)
 
 scraper = Scraper(name, city, state)
-results = scraper.get_results()
-print(results)
+raw_results = scraper.get_raw_results()
+
+if raw_results:
+    results = scraper.get_parsed_results(raw_results)
+    for result in results:
+        result.dump = ""
+        print(asdict(result))
+else:
+    print("No results found")
