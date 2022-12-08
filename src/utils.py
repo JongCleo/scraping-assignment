@@ -1,3 +1,5 @@
+import os
+
 states = {
     "AL": "Alabama",
     "AK": "Alaska",
@@ -66,3 +68,13 @@ def format_city(city: str) -> str:
 def format_name(name: str) -> str:
     # replace spaces with hyphen
     return name.strip().title().replace(" ", "-")
+
+
+def log_info(message: str) -> None:
+    if os.getenv("LOGGING_DESTINATION") == "test":
+        print(f"[INFO] {message}")
+
+
+def log_error(message: str) -> None:
+    if os.getenv("LOGGING_DESTINATION") == "test":
+        print(f"[ERROR] {message}")
